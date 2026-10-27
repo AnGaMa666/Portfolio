@@ -1,0 +1,11 @@
+{
+  "name": "angama-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/validate.mjs src",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs"
+  },
+  "engines": { "node": ">=24" }
+}

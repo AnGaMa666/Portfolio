@@ -1,0 +1,11 @@
+{
+  "name": "AnGaMa – Portfolio",
+  "short_name": "AnGaMa",
+  "description": "Offizielle Portfolio-Seite von AnGaMa.",
+  "lang": "de-DE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f1e9",
+  "theme_color": "#f4f1e9"
+}
