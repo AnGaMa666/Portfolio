@@ -1,19 +1,20 @@
 # AnGaMa Portfolio
 
-Die statische Startseite für [byangama.de](https://byangama.de/). Sie zeigt ausschließlich die öffentliche Online-Identität AnGaMa und verlinkt Pokédex, SMMC und die bekannten Profile. Es werden keine externen Skripte, Schriftarten, Bilder, Tracker oder optionalen Cookies geladen.
+Das Portfolio für [byangama.de](https://byangama.de/) ist eine Vue-3-Anwendung mit TypeScript und Vite. Die sichtbaren Seiten liegen in `src/`; die vier HTML-Dateien im Projektstamm sind lediglich die Einstiege für Startseite, Impressum, Datenschutz und 404.
 
-## Entwicklung
+## Lokal
 
 Node.js 24 oder neuer:
 
 ```bash
+npm ci
 npm test
 npm run build
 npm run preview
 ```
 
-Der Build liegt in `dist/`. `src/` enthält die veröffentlichbaren Dateien. Die rechtlichen Seiten sind derzeit sichtbar als unvollständig markiert und nicht indexiert. Sie müssen später mit geprüften Angaben ergänzt werden; persönliche Daten gehören nicht ohne Freigabe in dieses öffentliche Repository.
+Vite erzeugt die statischen Dateien in `dist/`. Die Gestaltung lädt keine fremden Schriften, Bilder, Tracker oder optionalen Cookies. Das Impressum und die Datenschutzhinweise sind sichtbar als unvollständig markiert; vor der dauerhaften rechtlichen Nutzung müssen geprüfte Angaben ergänzt werden. Persönliche Angaben gehören nicht ohne Freigabe in dieses öffentliche Repository.
 
 ## Veröffentlichung
 
-Die produktive Veröffentlichung läuft vorerst noch über das Twitch-Repository aus `apps/portfolio`. Dieses Repository enthält denselben Quellstand als Vorbereitung für den späteren Umzug. Hier sind noch keine STRATO-Secrets und kein Deployment-Workflow eingerichtet. Beim endgültigen Wechsel werden zuerst die Secrets und der Zielpfad geprüft, dann der Deployment-Workflow umgestellt und anschließend die Live-Seite verifiziert.
+Bis zum vollständigen Umzug bleibt das Twitch-Repository die Quelle für das STRATO-Deployment. Der gleiche Vue-/TypeScript-Quellstand wird dort unter `apps/portfolio` gehalten. Dieses Repository besitzt noch keine STRATO-Secrets und keinen Deployment-Workflow. Beim späteren Wechsel werden die Secrets eingerichtet, der Workflow auf dieses Repository umgestellt und die Live-Seite danach geprüft.
