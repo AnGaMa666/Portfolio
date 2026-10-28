@@ -34,7 +34,7 @@ const title = computed(() => ({
       <p class="legal-status">Entwurf – Verantwortlicher, Empfänger und Speicherfristen müssen vor der Freigabe vervollständigt und geprüft werden.</p>
       <section>
         <h2>1. Verantwortlicher und Geltungsbereich</h2>
-        <p>Diese Hinweise betreffen das Portfolio byangama.de und das Social Media Management Center (SMMC) unter app.byangama.de. Name, ladungsfähige Anschrift und Kontaktadresse des Verantwortlichen werden im <a href="/impressum.html">Impressum</a> ergänzt. Bis dahin sind diese Hinweise unvollständig.</p>
+        <p>Diese Hinweise betreffen das Portfolio byangama.de und das Social Media Management Center (SMMC) unter app.byangama.de. Name, ladungsfähige Anschrift und Kontaktadresse des Verantwortlichen werden im <a href="/impressum">Impressum</a> ergänzt. Bis dahin sind diese Hinweise unvollständig.</p>
       </section>
       <section>
         <h2>2. Besuch des Portfolios</h2>
@@ -58,7 +58,7 @@ const title = computed(() => ({
       </section>
       <section>
         <h2>7. Deine Rechte</h2>
-        <p>Nach der DSGVO kannst du je nach Fall Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch verlangen. Eine erteilte Einwilligung kannst du für die Zukunft widerrufen. Außerdem kannst du dich bei einer Datenschutzaufsichtsbehörde beschweren. Hinweise zur Löschung stehen unter <a href="/datenloeschung.html">Datenlöschung</a>. Die Kontaktadresse des Verantwortlichen wird noch ergänzt.</p>
+        <p>Nach der DSGVO kannst du je nach Fall Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch verlangen. Eine erteilte Einwilligung kannst du für die Zukunft widerrufen. Außerdem kannst du dich bei einer Datenschutzaufsichtsbehörde beschweren. Hinweise zur Löschung stehen unter <a href="/datenloeschung">Datenlöschung</a>. Die Kontaktadresse des Verantwortlichen wird noch ergänzt.</p>
       </section>
     </template>
 
@@ -82,9 +82,9 @@ const title = computed(() => ({
       </section>
       <section>
         <h2>5. Datenschutz und Beendigung</h2>
-        <p>Informationen zum Umgang mit personenbezogenen Daten stehen unter <a href="/datenschutz.html">Datenschutz</a>. Externe Konten kannst du in SMMC unter „Verbindungen“ trennen. Hinweise zu weitergehenden Löschanfragen stehen unter <a href="/datenloeschung.html">Datenlöschung</a>.</p>
+        <p>Informationen zum Umgang mit personenbezogenen Daten stehen unter <a href="/datenschutz">Datenschutz</a>. Externe Konten kannst du in SMMC unter „Verbindungen“ trennen. Hinweise zu weitergehenden Löschanfragen stehen unter <a href="/datenloeschung">Datenlöschung</a>.</p>
       </section>
-      <p>Die rechtlichen Anbieterangaben und eine Kontaktmöglichkeit stehen künftig im <a href="/impressum.html">Impressum</a>.</p>
+      <p>Die rechtlichen Anbieterangaben und eine Kontaktmöglichkeit stehen künftig im <a href="/impressum">Impressum</a>.</p>
     </template>
 
     <template v-else>

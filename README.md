@@ -1,20 +1,17 @@
-# AnGaMa Portfolio
+# Portfolio-Deploykopie
 
-Das Portfolio für [byangama.de](https://byangama.de/) ist eine Vue-3-Anwendung mit TypeScript und Vite. Die sichtbaren Seiten liegen in `src/`; die sechs HTML-Dateien im Projektstamm sind lediglich die Einstiege für Startseite, Impressum, Datenschutz, Nutzungsbedingungen, Datenlöschung und 404.
+Der öffentliche Quellstand wird im eigenständigen Repository [AnGaMa666/Portfolio](https://github.com/AnGaMa666/Portfolio) gepflegt. Diese Kopie bleibt bis zum Umzug der STRATO-Secrets im Twitch-Repository, damit der vorhandene Produktions-Workflow `byangama.de` veröffentlichen kann. Änderungen am Portfolio müssen in beiden Repositories synchron gehalten werden.
 
-## Lokal
+Die sichtbaren Seiten sind Vue-3-Komponenten mit TypeScript. Vite verwendet nur `index.html` als technische Einstiegsschale; Startseite und Rechtsseiten werden anhand der URL durch Vue gerendert. Apache leitet `/impressum`, `/datenschutz`, `/nutzungsbedingungen` und `/datenloeschung` intern auf die Vue-App. Die Rechtsseiten sind als Entwürfe gekennzeichnet. Vor App-Reviews müssen die Verantwortlichen- und Kontaktangaben, die konkreten Verarbeitungsvorgänge, Empfänger, Fristen und das Löschverfahren geprüft und vervollständigt werden.
 
-Node.js 24 oder neuer:
+## Lokal prüfen
+
+Im Repository-Stamm:
 
 ```bash
-npm ci
-npm test
-npm run build
-npm run preview
+pnpm install --frozen-lockfile
+pnpm portfolio:test
+pnpm portfolio:build
 ```
 
-Vite erzeugt die statischen Dateien in `dist/`. Die Gestaltung lädt keine fremden Schriften, Bilder, Tracker oder optionalen Cookies. Die rechtlichen Seiten sind sichtbar als Entwürfe markiert; vor App-Reviews müssen Anbieterangaben, Kontakt, Datenverarbeitung und Löschverfahren geprüft und vervollständigt werden. Persönliche Angaben gehören nicht ohne Freigabe in dieses öffentliche Repository.
-
-## Veröffentlichung
-
-Bis zum vollständigen Umzug bleibt das Twitch-Repository die Quelle für das STRATO-Deployment. Der gleiche Vue-/TypeScript-Quellstand wird dort unter `apps/portfolio` gehalten. Dieses Repository besitzt noch keine STRATO-Secrets und keinen Deployment-Workflow. Beim späteren Wechsel werden die Secrets eingerichtet, der Workflow auf dieses Repository umgestellt und die Live-Seite danach geprüft.
+Der manuelle Workflow `.github/workflows/portfolio-deploy.yml` verwendet die vorhandenen STRATO-Secrets aus dem GitHub-Environment `production`. Er prüft vor dem Upload den Zielpfad `/portfolio`, legt beim ersten Veröffentlichen nur bei erkannter STRATO-Reservierungsseite eine neue `index.html` an und prüft danach Startseite, Assets, Impressum und Datenschutz live. Der Upload nutzt denselben Paramiko-SFTP-Client wie die Web-App, schreibt die Startseite zuletzt und hält vorherige Root-Dateien für einen Rollback bereit.

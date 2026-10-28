@@ -11,7 +11,7 @@ const read = (path) => readFile(join(root, path), "utf8");
 const expect = (condition, message) => {
   if (!condition) throw new Error(message);
 };
-const files = ["index.html", "impressum.html", "datenschutz.html", "nutzungsbedingungen.html", "datenloeschung.html", "404.html", "robots.txt", "sitemap.xml", "site.webmanifest", ".htaccess"];
+const files = ["index.html", "robots.txt", "sitemap.xml", "site.webmanifest", ".htaccess"];
 const contentPath = mode === "dist" ? "" : "public/";
 
 for (const file of files) {
@@ -20,10 +20,6 @@ for (const file of files) {
 }
 
 const home = await read("index.html");
-const imprint = await read("impressum.html");
-const privacy = await read("datenschutz.html");
-const terms = await read("nutzungsbedingungen.html");
-const deletion = await read("datenloeschung.html");
 const htaccess = await read(contentPath + ".htaccess");
 const robots = await read(contentPath + "robots.txt");
 const sitemap = await read(contentPath + "sitemap.xml");
@@ -31,21 +27,21 @@ const sitemap = await read(contentPath + "sitemap.xml");
 expect(home.includes('<html lang="de-DE">'), "German document language missing");
 expect(home.includes('data-site="byangama-portfolio"'), "Portfolio marker missing");
 expect(home.includes('https://byangama.de/'), "Canonical URL missing");
-expect(home.includes('data-page="home"'), "Vue homepage mount missing");
-expect(imprint.includes('data-page="impressum"') && imprint.includes('content="noindex, follow"'), "Imprint entry missing");
-expect(privacy.includes('data-page="datenschutz"') && privacy.includes('content="noindex, follow"'), "Privacy entry missing");
-expect(terms.includes('data-page="nutzungsbedingungen"') && terms.includes('content="noindex, follow"'), "Terms entry missing");
-expect(deletion.includes('data-page="datenloeschung"') && deletion.includes('content="noindex, follow"'), "Deletion entry missing");
+expect(home.includes('<div id="app"></div>'), "Vue mount missing");
+expect(htaccess.includes('RewriteRule ^(impressum|datenschutz|nutzungsbedingungen|datenloeschung)/?$ index.html [L]'), "Vue route rewrites missing");
 expect(htaccess.includes("Content-Security-Policy") && htaccess.includes("Strict-Transport-Security"), "Security headers missing");
 expect(robots.includes("Sitemap: https://byangama.de/sitemap.xml"), "Robots sitemap missing");
 expect(sitemap.includes("<loc>https://byangama.de/</loc>"), "Homepage sitemap entry missing");
 
 if (mode === "source") {
   const app = await read("src/App.vue");
+  const main = await read("src/main.ts");
   const homeView = await read("src/views/HomeView.vue");
   const legalView = await read("src/views/LegalView.vue");
   const content = await read("src/content.ts");
-  expect(app.includes('href="/impressum.html"') && app.includes('href="/datenschutz.html"') && app.includes('href="/nutzungsbedingungen.html"') && app.includes('href="/datenloeschung.html"'), "Legal navigation missing");
+  for (const route of ["impressum", "datenschutz", "nutzungsbedingungen", "datenloeschung"]) {
+    expect(app.includes(`href="/${route}"`) && main.includes(`"/${route}": "${route}"`), `Vue route missing: ${route}`);
+  }
   expect(homeView.includes("v-for=\"project in projects\"") && homeView.includes("v-for=\"profile in profiles\""), "Vue content lists missing");
   expect(legalView.includes("noch unvollständig") && legalView.includes("Impressumsservices"), "Legal draft warning missing");
   for (const url of ["https://pokedex.byangama.de/", "https://app.byangama.de/", "https://www.twitch.tv/angama666"]) {
@@ -53,11 +49,10 @@ if (mode === "source") {
   }
 } else {
   const entries = await readdir(join(root, "assets"));
-  expect(entries.some((file) => /^main-[\w-]+\.js$/u.test(file)), "Vite JavaScript bundle missing");
-  expect(entries.some((file) => /^main-[\w-]+\.css$/u.test(file)), "Vite CSS bundle missing");
-  for (const page of [home, imprint, privacy, terms, deletion]) {
-    expect(/\/assets\/main-[\w-]+\.js/u.test(page), "Page does not load the Vue bundle");
-  }
+  expect(entries.some((file) => /^index-[\w-]+\.js$/u.test(file)), "Vite JavaScript bundle missing");
+  expect(entries.some((file) => /^index-[\w-]+\.css$/u.test(file)), "Vite CSS bundle missing");
+  expect(/\/assets\/index-[\w-]+\.js/u.test(home), "Page does not load the Vue bundle");
+  expect((await readdir(root)).filter((file) => file.endsWith(".html")).join() === "index.html", "Unexpected standalone HTML page");
   expect(!(await readdir(root)).some((file) => file.endsWith(".map")), "Source map in public output");
 }
 
