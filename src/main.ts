@@ -13,7 +13,7 @@ const pages: Record<string, Page> = {
   "/nutzungsbedingungen": "nutzungsbedingungen",
   "/datenloeschung": "datenloeschung",
 };
-const path = window.location.pathname.replace(/\/+$/u, "") || "/";
+const path = (window.location.pathname.replace(/\/+$/u, "") || "/").toLowerCase();
 const page = pages[path] ?? "not-found";
 
 if (page !== "home") {
