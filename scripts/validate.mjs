@@ -43,7 +43,7 @@ if (mode === "source") {
     expect(app.includes(`href="/${route}"`) && main.includes(`"/${route}": "${route}"`), `Vue route missing: ${route}`);
   }
   expect(homeView.includes("v-for=\"project in projects\"") && homeView.includes("v-for=\"profile in profiles\""), "Vue content lists missing");
-  expect(legalView.includes("noch unvollständig") && legalView.includes("Impressumsservices"), "Legal draft warning missing");
+  expect(legalView.includes("Noch unvollständig") && legalView.includes("[DEINE ANGABE:") && legalView.includes("[PRÜFEN:"), "Required legal placeholders missing");
   for (const url of ["https://pokedex.byangama.de/", "https://app.byangama.de/", "https://www.twitch.tv/angama666"]) {
     expect(content.includes(url), `Missing public link ${url}`);
   }
