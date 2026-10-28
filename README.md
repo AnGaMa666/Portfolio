@@ -1,6 +1,6 @@
 # AnGaMa Portfolio
 
-Das Portfolio für [byangama.de](https://byangama.de/) ist eine Vue-3-Anwendung mit TypeScript und Vite. Die sichtbaren Seiten liegen in `src/`; die vier HTML-Dateien im Projektstamm sind lediglich die Einstiege für Startseite, Impressum, Datenschutz und 404.
+Das Portfolio für [byangama.de](https://byangama.de/) ist eine Vue-3-Anwendung mit TypeScript und Vite. Die sichtbaren Seiten liegen in `src/`; die sechs HTML-Dateien im Projektstamm sind lediglich die Einstiege für Startseite, Impressum, Datenschutz, Nutzungsbedingungen, Datenlöschung und 404.
 
 ## Lokal
 
@@ -13,7 +13,7 @@ npm run build
 npm run preview
 ```
 
-Vite erzeugt die statischen Dateien in `dist/`. Die Gestaltung lädt keine fremden Schriften, Bilder, Tracker oder optionalen Cookies. Das Impressum und die Datenschutzhinweise sind sichtbar als unvollständig markiert; vor der dauerhaften rechtlichen Nutzung müssen geprüfte Angaben ergänzt werden. Persönliche Angaben gehören nicht ohne Freigabe in dieses öffentliche Repository.
+Vite erzeugt die statischen Dateien in `dist/`. Die Gestaltung lädt keine fremden Schriften, Bilder, Tracker oder optionalen Cookies. Die rechtlichen Seiten sind sichtbar als Entwürfe markiert; vor App-Reviews müssen Anbieterangaben, Kontakt, Datenverarbeitung und Löschverfahren geprüft und vervollständigt werden. Persönliche Angaben gehören nicht ohne Freigabe in dieses öffentliche Repository.
 
 ## Veröffentlichung
 

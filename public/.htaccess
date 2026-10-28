@@ -36,6 +36,14 @@ ErrorDocument 404 /404.html
     Header always set X-Robots-Tag "noindex, follow"
   </Files>
 
+  <Files "nutzungsbedingungen.html">
+    Header always set X-Robots-Tag "noindex, follow"
+  </Files>
+
+  <Files "datenloeschung.html">
+    Header always set X-Robots-Tag "noindex, follow"
+  </Files>
+
   <FilesMatch "\.(html|xml|txt)$">
     Header set Cache-Control "public, max-age=300, must-revalidate"
   </FilesMatch>

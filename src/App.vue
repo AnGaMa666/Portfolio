@@ -24,7 +24,7 @@ const year = new Date().getFullYear();
 
   <main id="inhalt">
     <HomeView v-if="page === 'home'" />
-    <LegalView v-else-if="page === 'impressum' || page === 'datenschutz'" :kind="page" />
+    <LegalView v-else-if="page === 'impressum' || page === 'datenschutz' || page === 'nutzungsbedingungen' || page === 'datenloeschung'" :kind="page" />
     <NotFoundView v-else />
   </main>
 
@@ -38,6 +38,8 @@ const year = new Date().getFullYear();
       <nav aria-label="Rechtliches">
         <a href="/impressum.html">Impressum</a>
         <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="/datenloeschung.html">Datenlöschung</a>
         <a href="#inhalt">Nach oben ↑</a>
       </nav>
     </div>
@@ -45,6 +47,8 @@ const year = new Date().getFullYear();
   <footer v-else-if="page !== 'not-found'" class="legal-footer wrap">
     <a v-if="page !== 'impressum'" href="/impressum.html">Impressum</a>
     <a v-if="page !== 'datenschutz'" href="/datenschutz.html">Datenschutz</a>
+    <a v-if="page !== 'nutzungsbedingungen'" href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
+    <a v-if="page !== 'datenloeschung'" href="/datenloeschung.html">Datenlöschung</a>
     <a href="/">Startseite</a>
   </footer>
 </template>

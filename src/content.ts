@@ -1,4 +1,4 @@
-export type Page = "home" | "impressum" | "datenschutz" | "not-found";
+export type Page = "home" | "impressum" | "datenschutz" | "nutzungsbedingungen" | "datenloeschung" | "not-found";
 
 export interface Project {
   number: string;
