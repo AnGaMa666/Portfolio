@@ -29,7 +29,7 @@ export const projects: readonly Project[] = [
     name: "SMMC",
     description: "Mein Social Media Management Center für Streams und Community.",
     category: "In Entwicklung",
-    url: "https://app.byangama.de/",
+    url: "https://app.byangama.de/ueber-smmc",
   },
 ];
 
