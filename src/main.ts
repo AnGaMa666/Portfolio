@@ -6,8 +6,27 @@ import "./styles.css";
 const root = document.querySelector<HTMLElement>("#app");
 if (!root) throw new Error("Portfolio mount point is missing");
 
-const allowedPages: readonly Page[] = ["home", "impressum", "datenschutz", "nutzungsbedingungen", "datenloeschung", "not-found"];
-const requestedPage = root.dataset.page;
-const page: Page = allowedPages.includes(requestedPage as Page) ? requestedPage as Page : "not-found";
+const pages: Record<string, Page> = {
+  "/": "home",
+  "/impressum": "impressum",
+  "/datenschutz": "datenschutz",
+  "/nutzungsbedingungen": "nutzungsbedingungen",
+  "/datenloeschung": "datenloeschung",
+};
+const path = window.location.pathname.replace(/\/+$/u, "") || "/";
+const page = pages[path] ?? "not-found";
+
+if (page !== "home") {
+  const titles: Record<Exclude<Page, "home">, string> = {
+    impressum: "Impressum",
+    datenschutz: "Datenschutz",
+    nutzungsbedingungen: "Nutzungsbedingungen",
+    datenloeschung: "Datenlöschung",
+    "not-found": "Seite nicht gefunden",
+  };
+  document.title = `${titles[page]} — AnGaMa`;
+  document.querySelector('meta[name="robots"]')?.setAttribute("content", "noindex, follow");
+  document.querySelector('link[rel="canonical"]')?.setAttribute("href", `https://byangama.de${path}`);
+}
 
 createApp(App, { page }).mount(root);

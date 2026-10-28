@@ -36,19 +36,19 @@ const year = new Date().getFullYear();
     <div class="wrap footer-bottom">
       <span>© {{ year }} AnGaMa</span>
       <nav aria-label="Rechtliches">
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
-        <a href="/datenloeschung.html">Datenlöschung</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/nutzungsbedingungen">Nutzungsbedingungen</a>
+        <a href="/datenloeschung">Datenlöschung</a>
         <a href="#inhalt">Nach oben ↑</a>
       </nav>
     </div>
   </footer>
   <footer v-else-if="page !== 'not-found'" class="legal-footer wrap">
-    <a v-if="page !== 'impressum'" href="/impressum.html">Impressum</a>
-    <a v-if="page !== 'datenschutz'" href="/datenschutz.html">Datenschutz</a>
-    <a v-if="page !== 'nutzungsbedingungen'" href="/nutzungsbedingungen.html">Nutzungsbedingungen</a>
-    <a v-if="page !== 'datenloeschung'" href="/datenloeschung.html">Datenlöschung</a>
+    <a v-if="page !== 'impressum'" href="/impressum">Impressum</a>
+    <a v-if="page !== 'datenschutz'" href="/datenschutz">Datenschutz</a>
+    <a v-if="page !== 'nutzungsbedingungen'" href="/nutzungsbedingungen">Nutzungsbedingungen</a>
+    <a v-if="page !== 'datenloeschung'" href="/datenloeschung">Datenlöschung</a>
     <a href="/">Startseite</a>
   </footer>
 </template>
