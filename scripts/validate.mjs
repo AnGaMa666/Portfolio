@@ -28,7 +28,7 @@ expect(home.includes('<html lang="de-DE">'), "German document language missing")
 expect(home.includes('data-site="byangama-portfolio"'), "Portfolio marker missing");
 expect(home.includes('https://byangama.de/'), "Canonical URL missing");
 expect(home.includes('<div id="app"></div>'), "Vue mount missing");
-expect(htaccess.includes('RewriteRule ^(impressum|datenschutz|nutzungsbedingungen|datenloeschung)/?$ index.html [L]'), "Vue route rewrites missing");
+expect(htaccess.includes('RewriteRule ^(impressum|datenschutz|nutzungsbedingungen|datenloeschung)/?$ index.html [L,NC]'), "Vue route rewrites missing");
 expect(htaccess.includes("Content-Security-Policy") && htaccess.includes("Strict-Transport-Security"), "Security headers missing");
 expect(robots.includes("Sitemap: https://byangama.de/sitemap.xml"), "Robots sitemap missing");
 expect(sitemap.includes("<loc>https://byangama.de/</loc>"), "Homepage sitemap entry missing");
