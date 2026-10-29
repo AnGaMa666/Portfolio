@@ -34,6 +34,23 @@ const title = computed(() => ({
 
     <template v-else-if="kind === 'datenschutz'">
       <p class="legal-status">Noch unvollständig: Die markierten Angaben zu Verantwortlichem, Dienstleistern, Drittstaaten und Fristen müssen vor einer öffentlichen App-Freigabe geprüft und ergänzt werden.</p>
+      <section aria-labelledby="privacy-video-title">
+        <h2 id="privacy-video-title">Datenschutz in 20 Sekunden</h2>
+        <p>Diese kurze Erklärung ergänzt den Text darunter. Das Video liegt auf byangama.de und startet nur, wenn du es abspielst.</p>
+        <video class="legal-video" controls preload="none" playsinline aria-label="Kurze visuelle Erklärung zum Datenschutz bei SMMC">
+          <source src="/privacy-explainer.webm" type="video/webm" />
+          <track src="/privacy-explainer-de.vtt" kind="captions" srclang="de" label="Deutsche Untertitel" default />
+          Dein Browser kann das Video nicht abspielen. Die Textfassung steht direkt darunter.
+        </video>
+        <details><summary>Textfassung des Videos lesen</summary>
+          <ol>
+            <li>Für den Zugang verarbeitet SMMC E-Mail-Adresse, Benutzername, Anzeigename, Passwort-Hash und Sitzungsdaten.</li>
+            <li>Du verbindest Plattformen aktiv. YouTube liefert mit Lesezugriff Kanal- und Live-Daten; SMMC veröffentlicht dort nichts.</li>
+            <li>Notwendige Cookies schützen die Anmeldung. Der eingebettete Twitch-Chat lädt erst nach deiner Zustimmung.</li>
+            <li>Verbindungen und Cookie-Auswahl kannst du ändern. Vollständige Hinweise und noch offene Angaben stehen auf dieser Datenschutzseite.</li>
+          </ol>
+        </details>
+      </section>
       <section>
         <h2>1. Verantwortlicher und Geltungsbereich</h2>
         <p>Diese Informationen gelten für byangama.de, app.byangama.de und die zugehörige SMMC-API. Verantwortlich ist <strong class="legal-missing">[DEINE ANGABE: Name/Firma aus dem Impressum]</strong>. Kontakt: <strong class="legal-missing">[DEINE ANGABE: Datenschutz-E-Mail oder Postanschrift]</strong>. Die vollständige Anbieterkennzeichnung steht im <a href="/impressum">Impressum</a>.</p>
@@ -50,8 +67,9 @@ const title = computed(() => ({
       </section>
       <section>
         <h2>4. Verbundene Plattformen und Inhalte</h2>
-        <p>Wenn du Twitch, Spotify, Instagram oder TikTok aktiv verbindest, verarbeitet SMMC die für die gewählte Funktion nötigen Profilangaben, Berechtigungen und Zugangstoken. Eine Verbindung kann in SMMC unter „Verbindungen“ getrennt werden. Chat-Befehle, Musiksteuerung, Beiträge, Overlays und Automatisierungen verarbeiten die von dir eingegebenen Inhalte und benötigte Ereignisdaten. Veröffentlichungen und Nachrichten werden nur durch eine ausgelöste Funktion oder eine von dir aktivierte Automatisierung an die Zielplattform übermittelt.</p>
-        <p>Für verbundene Dienste gelten zusätzlich deren Datenschutzhinweise. SMMC übermittelt an Meta oder TikTok keine allgemeinen Workspace- oder Einnahmendaten allein durch das Verbinden eines Kontos. <span class="legal-missing">[PRÜFEN: konkrete Plattformempfänger, OAuth-Berechtigungen, Speicherdauer von Tokens, Protokollen, Medien und Ereignissen]</span></p>
+        <p>Wenn du Twitch, Spotify, Instagram, TikTok oder YouTube aktiv verbindest, verarbeitet SMMC die für die gewählte Funktion nötigen Profilangaben, Berechtigungen und Zugangstoken. Eine Verbindung kann in SMMC unter „Verbindungen“ getrennt werden. Chat-Befehle, Musiksteuerung, Beiträge, Overlays und Automatisierungen verarbeiten die von dir eingegebenen Inhalte und benötigte Ereignisdaten. Veröffentlichungen und Nachrichten werden nur durch eine ausgelöste Funktion oder eine von dir aktivierte Automatisierung an die Zielplattform übermittelt.</p>
+        <p>Bei YouTube fragt SMMC nur Lesezugriff an. Nach dem Verbinden speichert SMMC Kanal-ID, Kanalname, Verbindungszeit und verschlüsselte OAuth-Zugangstoken im Workspace. Kanalstatistik, Live-Status und bis zu 20 zuletzt verfügbare Super-Chat- oder Super-Sticker-Ereignisse aus den letzten 30 Tagen werden beim Aufruf abgerufen. Die Anwendung übernimmt daraus Betrag, Währung, Zeitpunkt und Ereigniskennung, aber keinen Nachrichtentext oder Zuschauernamen; diese Live-Daten werden nicht als eigene Einnahmenbuchung gespeichert. Die Angaben stammen aus <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener noreferrer">YouTube API Services</a>. Ergänzend gelten die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzhinweise von Google</a>.</p>
+        <p>Für verbundene Dienste gelten zusätzlich deren Datenschutzhinweise. SMMC übermittelt an Meta oder TikTok keine allgemeinen Workspace- oder Einnahmendaten allein durch das Verbinden eines Kontos. Einen YouTube-Zugriff kannst du in SMMC unter „Verbindungen“ trennen oder in den <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google-Kontoeinstellungen</a> widerrufen. Beim Trennen fordert SMMC die Token-Sperrung bei Google an und entfernt danach die gespeicherte Verbindung. Auf YouTube veröffentlichte Daten werden dadurch nicht gelöscht. <span class="legal-missing">[PRÜFEN: konkrete Plattformempfänger, OAuth-Berechtigungen, Speicherdauer von Tokens, Protokollen, Medien und Ereignissen sowie Löschung nach externem Widerruf]</span></p>
       </section>
       <section>
         <h2>5. Einnahmen und Steuerunterlagen</h2>
@@ -59,7 +77,7 @@ const title = computed(() => ({
       </section>
       <section>
         <h2>6. Cookies, lokaler Speicher und externe Einbettungen</h2>
-        <p>Für Anmeldung und Schutz vor unerwünschten Änderungen verwendet SMMC die technisch notwendigen Cookies <code>smm_session</code> und <code>XSRF-TOKEN</code>. Sie sind auf HTTPS beschränkt; das Sitzungscookie ist nur serverseitig lesbar. Die Auswahl für optionale Inhalte wird unter <code>smmc.cookie-consent.v1</code> höchstens 180 Tage im Browser gespeichert. Lokale Entwürfe und Workspace-Einstellungen können beim Verwenden der entsprechenden Funktionen im Browser liegen.</p>
+        <p>Für Anmeldung und Schutz vor unerwünschten Änderungen verwendet SMMC die technisch notwendigen Cookies <code>smm_session</code> und <code>XSRF-TOKEN</code>. Sie sind auf HTTPS beschränkt; das Sitzungscookie ist nur serverseitig lesbar. Die Auswahl für optionale Inhalte wird unter <code>smmc.cookie-consent.v1</code> höchstens 180 Tage im Browser gespeichert. Lokale Entwürfe und Workspace-Einstellungen können beim Verwenden der entsprechenden Funktionen im Browser liegen. Wenn du OBS über den Browser verbindest, speichert dieser unter <code>smmc.obs-browser-ack.[Workspace-ID]</code> nur die Kennung und den Bearbeitungsstand des letzten OBS-Auftrags, damit er nach einem Neuladen nicht doppelt ausgeführt wird. Der Kopplungsschlüssel und das lokale OBS-Passwort werden dabei nicht gespeichert.</p>
         <p>Der eingebettete Twitch-Chat wird erst nach deiner Zustimmung und dem Öffnen geladen. Dann baut dein Browser eine Verbindung zu Twitch auf, das eigene Daten speichern kann. Die Zustimmung lässt sich über „Cookie-Einstellungen“ ändern. SMMC setzt nach aktuellem Stand keine Analyse- oder Marketing-Cookies ein. Technisch notwendige Speicherungen richten sich nach § 25 Abs. 2 TDDDG; für die optionale Einbettung wird eine Einwilligung eingeholt.</p>
       </section>
       <section>
@@ -85,7 +103,7 @@ const title = computed(() => ({
       </section>
       <section>
         <h2>3. Plattformen, Inhalte und Automatisierungen</h2>
-        <p>Du entscheidest, welche externen Konten du verbindest. Für Twitch, Spotify, Instagram und TikTok gelten zusätzlich deren eigene Regeln. Du bist für die Rechte an hochgeladenen Medien, Texte, Chatnachrichten und die von dir eingerichteten Automatisierungen verantwortlich. Prüfe vor dem Aktivieren Ziel, Auslöser und öffentliche Ausgabe. SMMC veröffentlicht Inhalte nur durch eine ausdrücklich ausgelöste Funktion oder eine aktivierte Automatisierung.</p>
+        <p>Du entscheidest, welche externen Konten du verbindest. Für Twitch, Spotify, Instagram und TikTok gelten zusätzlich deren eigene Regeln. Bei Nutzung der YouTube-Verbindung stimmst du außerdem den <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube-Nutzungsbedingungen</a> zu. Du bist für die Rechte an hochgeladenen Medien, Texten, Chatnachrichten und die von dir eingerichteten Automatisierungen verantwortlich. Prüfe vor dem Aktivieren Ziel, Auslöser und öffentliche Ausgabe. SMMC veröffentlicht Inhalte nur durch eine ausdrücklich ausgelöste Funktion oder eine aktivierte Automatisierung.</p>
       </section>
       <section>
         <h2>4. Testphase, Änderungen und Verfügbarkeit</h2>

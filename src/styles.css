@@ -73,4 +73,5 @@ a:focus-visible{outline:3px solid #d75638;outline-offset:5px}
 .legal-page section a,.legal-page>p a{text-decoration:underline;text-underline-offset:3px}
 .legal-facts{margin:0}.legal-facts div{display:grid;grid-template-columns:minmax(180px,1fr) 2fr;gap:16px;border-bottom:1px solid #d8d5cd;padding:12px 0}.legal-facts dt{font-weight:700}.legal-facts dd{margin:0;line-height:1.55}
 .legal-missing{color:#9b2f1f;font-weight:700;background:#f7e8e1;padding:0 .18em;box-decoration-break:clone}
+.legal-video{display:block;width:100%;max-width:780px;aspect-ratio:16/9;background:#242521;border-radius:8px}.legal-page details{margin:18px 0}.legal-page summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}.legal-page details li{margin:.6rem 0;line-height:1.55}
 @media(max-width:600px){.legal-facts div{grid-template-columns:1fr;gap:4px}.legal-page section:first-of-type{margin-top:40px}}
