@@ -6,6 +6,7 @@
     "dev": "vite",
     "typecheck": "vue-tsc --noEmit",
     "test": "npm run typecheck && node scripts/validate.mjs source",
+    "check:privacy": "node scripts/privacy-check.mjs",
     "build": "vue-tsc --noEmit && vite build && node scripts/validate.mjs dist",
     "preview": "vite preview --host 127.0.0.1 --port 4174"
   },

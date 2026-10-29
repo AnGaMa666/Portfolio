@@ -35,6 +35,7 @@ export const projects: readonly Project[] = [
 
 export const profiles: readonly Profile[] = [
   { name: "Twitch", detail: "Streams & Chat", url: twitchUrl },
+  { name: "Beacons", detail: "Alle Links", url: "https://beacons.ai/angama" },
   { name: "TikTok", detail: "@angamavt", url: "https://www.tiktok.com/@angamavt" },
   { name: "Instagram", detail: "@angama666", url: "https://www.instagram.com/angama666/" },
   { name: "X", detail: "@AnGaMa666", url: "https://x.com/AnGaMa666" },
